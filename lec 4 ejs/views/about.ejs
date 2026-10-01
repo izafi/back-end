@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <h1> thiis is <%= title %> page </h1>
+
+    <!-- if else  -->
+
+    <% if (message) {%>
+
+        <p>
+            <%= message %>
+        </p>
+        <% }else{ %>
+            <p>no message</p>
+            <% } %>
+<!-- array -->
+            <h2>Names</h2>
+
+            <ul>
+                <% names.forEach((name) => {%>
+                  <li><%= name %></li>  
+              <%  }); %>
+            </ul>
+
+            <!-- array of object  -->
+
+            <table border="1" width="400">
+
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+
+                <% items.forEach((item) => { %>
+                    <tr>
+                        <td><%= item.name %></td>
+                        <td><%= item.age %></td>
+                    </tr>
+              <%  }); %>
+
+            </table>
+</body>
+
+</html>

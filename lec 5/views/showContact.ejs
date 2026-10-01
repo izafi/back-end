@@ -1,0 +1,141 @@
+<%- include("partials/header") %>
+
+
+<div class="page-header">
+
+    <h2>
+        All Contacts
+    </h2>
+
+
+    <a
+        href="/add-contact"
+        class="btn btn-primary"
+    >
+        + Add Contact
+    </a>
+
+</div>
+
+
+<% if (contacts.length === 0) { %>
+
+
+    <div class="empty-box">
+
+        <h3>
+            No Contacts Found
+        </h3>
+
+        <p>
+            You haven't added any contacts yet.
+        </p>
+
+        <a
+            href="/add-contact"
+            class="btn btn-primary"
+        >
+            Add First Contact
+        </a>
+
+    </div>
+
+
+<% } else { %>
+
+
+    <div class="table-card">
+
+        <table class="contact-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        #
+                    </th>
+
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Contact Number
+                    </th>
+
+                    <th>
+                        Actions
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+                <% contacts.forEach((contact, index) => { %>
+
+
+                    <tr>
+
+                        <td>
+                            <%= index + 1 %>
+                        </td>
+
+
+                        <td>
+                            <strong>
+                                <%= contact.name %>
+                            </strong>
+                        </td>
+
+
+                        <td>
+                            <%= contact.phone %>
+                        </td>
+
+
+                        <td>
+
+                            <div class="actions">
+
+                                <a
+                                    href="/update-contact/<%= contact.id %>"
+                                    class="btn btn-warning btn-small"
+                                >
+                                    Edit
+                                </a>
+
+
+                                <a
+                                    href="/delete-contact/<%= contact.id %>"
+                                    class="btn btn-danger btn-small"
+                                    onclick="return confirm('Are you sure you want to delete this contact?')"
+                                >
+                                    Delete
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                <% }) %>
+
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+<% } %>
+
+
+<%- include("partials/footer") %>
