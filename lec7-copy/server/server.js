@@ -1,24 +1,46 @@
-const express = require("express");
-const dotenv = require("dotenv");
+// const express = require("express");
+// const dotenv = require("dotenv");
 
+// const connectDB = require("./config/db")
+
+// dotenv.config();
+
+// const app =  express();
+
+// connectDB();
+
+// app.use(express.json());
+
+// const productRoutes = require("./routes/productRoute")
+
+// app.use("/api/products", productRoutes)
+
+// const PORT = process.env.PORT;
+
+// app.listen(PORT,()=>{
+//     console.log(`server running on port ${PORT}`);
+    
+// })
+
+
+
+const express = require("express")
+const dotenv = require("dotenv")
 const connectDB = require("./config/db")
-
+const PORT =  process.env.PORT;
 dotenv.config();
-
-const app =  express();
-
+const app = express();
 connectDB();
 
-app.use(express.json());
+app.use(express.json())
+
 
 const productRoutes = require("./routes/productRoute")
 
-app.use("/api/products", productRoutes)
+app.use("/api/products",productRoutes)
 
-const PORT = process.env.PORT;
 
 app.listen(PORT,()=>{
-    console.log(`server running on port ${PORT}`);
+    console.log(`server is running at ${PORT}`);
     
 })
-
